@@ -1,7 +1,42 @@
-<h1>Great ideas are here...</h1>
-<% @ideas.each do |idea| %>
-  <div class="col-xs-11 text-center">
-  <h3>What: <%= idea.what%> </h3>
-  <h3>Usage: <%= idea.usage %></h3>
+<div class="cols-sx-11 col-xs-offset-1">
+  <h2>Great ideas are here...</h2>
+  <br class="clr"/>
+
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+    New idea
+  </button>
+
 </div>
+<br />
+
+<% @ideas.each do |idea| %>
+  <div class="idea col-xs-11 col-xs-offset-1">
+    <p>What: <%= idea.what%> </p>
+    <p>Usage: <%= idea.usage %></p>
+  </div>
+  <br class="clr"/>
+  <br />
 <% end %>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <%= simple_form_for @idea do |f| %>
+        <div class="modal-body">
+            <%= f.input :what %>
+            <%= f.input :usage %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <%= f.button :submit, class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
