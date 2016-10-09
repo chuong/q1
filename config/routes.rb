@@ -2,6 +2,7 @@ Q1::Application.routes.draw do
   Rails.application.routes.draw do
     get "/pages/:page" => "pages#show"
     root "pages#show", page: "home"
+    resources :ideas, only: [:index, :new, :create, :show]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

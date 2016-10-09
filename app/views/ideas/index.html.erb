@@ -1,0 +1,7 @@
+<h1>Great ideas are here...</h1>
+<% @ideas.each do |idea| %>
+  <div class="col-xs-11 text-center">
+  <h3>What: <%= idea.what%> </h3>
+  <h3>Usage: <%= idea.usage %></h3>
+</div>
+<% end %>
